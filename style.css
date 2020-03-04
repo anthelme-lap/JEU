@@ -1,0 +1,52 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  body{
+      background-color: black;
+  }
+
+  
+  .memory-game {
+    width: 640px;
+    height: 640px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 1000px;/* important pour avoir l'effet 3D; */
+  }
+  
+  .card {
+    width: 20%;
+    height: 33%;
+    margin: 5px;
+    position: relative;/* faut que toute les carte soit en relative */
+    transform: scale(1);
+    transform-style: preserve-3d;/* effet 3D */
+    transition: transform .5s;
+  }
+  
+
+  
+  .card.flip{
+    transform: rotateY(180deg);
+  }
+
+
+  
+  .front-face,
+  .back-face {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    position: absolute;
+    backface-visibility: hidden;/* Appliquer cette regle pour cacher toute les image derriere; */
+  }
+  
+  .front-face {
+    transform: rotateY(180deg);/* pour eviter les partie qui sorte */
+  }   
+   
